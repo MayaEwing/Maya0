@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/firstpage.css">
+  <link rel="apple-touch-icon" href="./img/ico.PNG" />
+  <script src="https://kit.fontawesome.com/dbbdb6be34.js" crossorigin="anonymous"></script>
+  <script src="./js/carlist.js"></script>
+  <script src="./js/firstpage.js"></script>
+  <title>Car Rent</title>
+</head>
+<body>
+  <header>
+    <div class="bg-dark header-top">
+      <a href="#"><img src="./img/mark.svg" alt=""></a>
+      <div class="content">
+        <span>
+          <i class="fa-solid fa-globe"></i>
+          En cualquier lugar en cualquier momento...  
+        </span>
+      </div>
+    </div>
+    <div class="header-title">QUÉ VEHÍCULO QUIERES CONDUCIR?</div>
+    <div class="header-filter">
+      <div class="tag-bar" id="myBtnContainer">
+        <span class="tag-item active" onclick="filterSelection('all')">
+          <span>todos</span>
+        </span>
+        <span class="tag-item" onclick="filterSelection('sedan')">
+          <span>sedan</span>
+        </span>
+        <span class="tag-item" onclick="filterSelection('corolla')">
+          <span>corolla</span>
+        </span>
+        <span class="tag-item" onclick="filterSelection('CXR-X')">
+          <span>CXR-X</span>
+        </span>
+        <span class="tag-item" onclick="filterSelection('logan')">
+          <span>Logan</span>
+        </span>
+      </div>
+    </div>
+  </header>
+  <aside>
+    <div class="collapse" id="modal">
+      <div class="box animate">
+        <div class="car-img bg-dark">
+          <div class="car-info">
+            <h3 id="car-name">opel corsa</h3>
+            <h5 class="description" id="car-type">o similar/sedan</h5>
+          </div>
+          <div class="carimg">
+            <img src="./img/car (1).png" alt="car" id="car-img"/>
+          </div>
+          <div class="car-info2">
+            <h5>
+              <i class="fa-solid fa-user"></i>
+              <span>5 asientos</span>
+              <i class="fa-solid fa-suitcase-rolling"></i>
+              <span>1 Maletas</span>
+              <i class="fa-solid fa-code-merge"></i>
+              <span>Manual</span>
+              <i class="fa-solid fa-gas-pump"></i>
+              <span>5 puertas</span>
+            </h5>
+            <span>Edad minima del conductor mas joven: 18</span>
+          </div>
+        </div>
+        <div class="car-content">
+          <div class="header-bar">
+            <div>opciones de pago</div>
+            <button onclick="document.getElementById('modal').style.display='none'" class="cancelbtn"><i class="fa-sharp fa-solid fa-xmark"></i></button>
+            <!-- <div><i class="fa-sharp fa-solid fa-xmark"></i></div> -->
+          </div>
+          <div class="select1">
+            <div class="sel-part0">
+              <label class="container">
+                <input id="default-radio" type="radio" checked="checked" name="radio" onclick="resetprice()">
+                <span class="checkmark"></span>
+              </label>
+            </div>
+            <div class="sel-part1">
+              <h4>mejor precio</h4>
+              <span>paga ahora, cancela y reprograma por una tarifa</span>
+            </div>
+            <div class="sel-part2">
+              <span>incluido
+                <i class="fa-solid fa-circle-info"></i>
+              </span>
+            </div>
+          </div>
+          <div class="select2">
+            <div class="sel-part0">
+              <label class="container">
+                <input type="radio" name="radio" onclick="setprice()">
+                <span class="checkmark"></span>
+              </label>
+            </div>
+            <div class="sel-part1">
+              <h4>Mantengase flexible</h4>
+              <span>Pague ai recoger, cancelacion y cambio de reserva gratuitos en cuaiquier momento</span>
+            </div>
+            <div class="sel-part2">
+              <span>+$<span id="plus-price">38.47</span> / dia
+                <i class="fa-solid fa-circle-info"></i>
+              </span>
+            </div>
+          </div>
+          <div class="kilo">
+            <div >kilometrage</div>
+          </div>
+          <div class="select3">
+            <h4>4000km</h4>
+            <span>Pague ai recoger, cancelacion y cambio de reserva gratuitos en cuaiquier momento</span>
+        </div>
+          <div class="footer-bar">
+            <div>
+              $
+              <span class='big-num'id="car-price">$0</span>
+              <span class="sm-num" id="total-price">000.000</span>&nbsp;total
+              <h5>detalle de los precios</h5>
+            </div>
+            <a class="button" onclick="detailview()">siguiente</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row" id="row">
+      <!-- <div class="col bg-dark sedan" onclick="modalshow('no1')">
+        <div class="car-info">
+          <h3>opel corsa</h3>
+          <h5 class="description">o similar/sedan</h5>
+        </div>
+        <div class="tag-bar">
+          <span class="tag-item">
+            <i class="fa-solid fa-user"></i>
+            <span>5</span>
+          </span>
+          <span class="tag-item">
+            <i class="fa-solid fa-suitcase-rolling"></i>
+            <span>1</span>
+          </span>
+        </div>
+        <div class="carimg">
+          <img src="./img/car (1).png" alt="car"/>
+        </div>
+        <div class="car-info">
+          <h5>4,000km incl</h5>
+          <span class="big-num">$640.16</span>
+          <span class="sm-num">$17,924.48 total</span>
+        </div>
+      </div> -->
+    </div>
+  </aside>
+</body>
+
+<script>
+  //------------------------ this make car-list ----------------- 
+  // alert(carlist[0].name);
+  carlist.map(getcarlist);
+  function getcarlist(item){
+    // alert(item.id);
+    document.getElementById("row").innerHTML += `
+      <a class="col bg-dark ${item.type}" onclick="modalshow(${item.id})" href="#modal">
+        <div class="car-info">
+          <h3>${item.name}</h3>
+          <h5 class="description">o similar/${item.type}</h5>
+        </div>
+        <div class="tag-bar">
+          <span class="tag-item">
+            <i class="fa-solid fa-user"></i>
+            <span>5</span>
+          </span>
+          <span class="tag-item">
+            <i class="fa-solid fa-suitcase-rolling"></i>
+            <span>1</span>
+          </span>
+        </div>
+        <div class="carimg">
+          <img src="${item.url}" alt="car"/>
+        </div>
+        <div class="car-info">
+          <h5>4,000km incl</h5>
+          <span class="big-num">$${item.price}</span>
+          <span class="sm-num">$${item.price*28} total</span>
+        </div>
+      </a>
+    `;
+
+  };
+//------------------------------------this is filter process part-----------------------
+  filterSelection("all")
+  function filterSelection(c) {
+    // alert(c)
+    var x, i;
+    x = document.getElementsByClassName("col");
+    if (c == "all") c = "";
+    for (i = 0; i < x.length; i++) {
+      w3RemoveClass(x[i], "show");
+      if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+    }
+  }
+
+  function w3AddClass(element, name) {
+    var i, arr1, arr2;
+    arr1 = element.className.split(" ");
+    arr2 = name.split(" ");
+    for (i = 0; i < arr2.length; i++) {
+      if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+    }
+  }
+
+  function w3RemoveClass(element, name) {
+    var i, arr1, arr2;
+    arr1 = element.className.split(" ");
+    arr2 = name.split(" ");
+    for (i = 0; i < arr2.length; i++) {
+      while (arr1.indexOf(arr2[i]) > -1) {
+        arr1.splice(arr1.indexOf(arr2[i]), 1);     
+      }
+    }
+    element.className = arr1.join(" ");
+  }
+
+  // Add active class to the current button (highlight it)
+
+  var btnContainer = document.getElementById("myBtnContainer");
+  var btns = btnContainer.getElementsByClassName("tag-item");
+  for (var i = 0; i < btns.length; i++) {
+    // alert(btn.length);
+    btns[i].addEventListener("click", function(){
+      var current = document.getElementsByClassName("active");
+      current[0].className = current[0].className.replace(" active", "");
+      this.className += " active";
+    });
+  }
+</script>
+</html>

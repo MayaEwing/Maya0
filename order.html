@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/secondpage.css">
+  <link rel="shortcut icon" href="ico.png" type="image/x-icon">
+  <script src="https://kit.fontawesome.com/dbbdb6be34.js" crossorigin="anonymous"></script>
+  <script src="./js/carlist.js"></script>
+  <script src="./js/secondpage.js"></script>
+
+  <title>Car_select</title>
+</head>
+<body>
+  <header>
+    <div class="bg-dark header-top">
+      <a href="#"><img src="./img/mark.svg" alt=""></a>
+      <div class="content">
+        <span>
+          <i class="fa-solid fa-globe"></i>
+          En cualquier lugar en cualquier momento...  
+        </span>
+      </div>
+    </div>
+    <div class="header-filter">
+      <div class="header-filter">
+        <div class="tag-bar" id="myBtnContainer">
+          <a class="tag-item" href="./index.html">
+            <div class="part1"><img id='car-img', src="./img/car (1).png" alt="carimg" class="carimg"></div>
+            <div class="part2">
+              <h4 id="car-name">todos</h4>
+              <p id="car-type">todofewg3gres</p>
+            </div>
+            <div class="part3">
+              <i class="fa-solid fa-pen"></i>
+            </div>
+          </a>
+          <span class="tag-active active">
+            <h4 id="car-name">Extras</h4>
+            <p id="car-type">Seleccionar ahora</p>
+        </span>
+        </div>
+      </div>
+    </div>
+    <div class="header-submit-bar">
+      <div class="title">QUÉ VEHÍCULO QUIERES CONDUCIR?</div>
+      <div class="price">
+        $
+        <span class='big-num'id="car-price">$0</span>
+        <span class="sm-num" id="total-price">000.000</span>&nbsp;total
+        <p>detalle de los precios</p>
+      </div>
+      <div class="button" onclick="set()">Continuar</div>
+    </div>
+
+  </header>
+  <aside>
+    <div class="col-1">
+      <div class="select">
+        <div class="sel-part1">
+          <h4>
+            <i class="fa-solid fa-users"></i>
+            <label>Conductor adicional</label>
+          </h4>
+          <span>$59.57/dia y conductor</span>
+        </div>
+        <div class="sel-part2">
+          <span>
+            <div class="bar-bg" id="bar1">
+              <span class="min" onclick="min(1)"><i class="fa-sharp fa-solid fa-circle-minus"></i></span>
+              <span class="num" id="num1">0</span>
+              <span class="plus" onclick="plus(1)"><i class="fa-sharp fa-solid fa-circle-plus"></i></span>
+            </div>
+          </span>
+        </div>
+      </div>
+      <div class="select">
+        <div class="sel-part1">
+          <h4>
+            <i class="fa-sharp fa-solid fa-location-arrow"></i>
+            <label>Sistema de navegacion garantizado</label>
+          </h4>
+          <span>$66.48/dia y conductor</span>
+        </div>
+        <div class="sel-part2">
+          <span>
+            <div class="bar-bg" id="bar2">
+              <span class="min" onclick="min(2)"><i class="fa-sharp fa-solid fa-circle-minus"></i></span>
+              <span class="num" id="num2">0</span>
+              <span class="plus" onclick="plus(2)"><i class="fa-sharp fa-solid fa-circle-plus"></i></span>
+            </div>
+          </span>
+        </div>
+      </div>
+      <div class="select">
+        <div class="sel-part1">
+          <h4>
+            <i class="fa-solid fa-gas-pump"></i>
+            <label>Servicio de repostaje/carga</label>
+          </h4>
+          <span>$389.84/una vez</span>
+        </div>
+        <div class="sel-part2">
+          <span>
+            <div class="bar-bg" id="bar3">
+              <span class="min" onclick="min(3)"><i class="fa-sharp fa-solid fa-circle-minus"></i></span>
+              <span class="num" id="num3">0</span>
+              <span class="plus" onclick="plus(3)"><i class="fa-sharp fa-solid fa-circle-plus"></i></span>
+            </div>
+          </span>
+        </div>
+      </div>
+      <div class="select">
+        <div class="sel-part1">
+          <h4>
+            <i class="fa-solid fa-car-on"></i>
+            <label>Servicio de monilidad</label>
+          </h4>
+          <span>$74.99/dia</span>
+        </div>
+        <div class="sel-part2">
+          <span>
+            <div class="bar-bg" id="bar4">
+              <span class="min" onclick="min(4)"><i class="fa-sharp fa-solid fa-circle-minus"></i></span>
+              <span class="num" id="num4">0</span>
+              <span class="plus" onclick="plus(4)"><i class="fa-sharp fa-solid fa-circle-plus"></i></span>
+            </div>
+          </span>
+        </div>
+      </div>
+      <div class="select">
+        <div class="sel-part1">
+          <h4>
+            <i class="fa-solid fa-shield"></i>
+            <label>Proteccion ruedas y cristales</label>
+          </h4>
+          <span>$61.69/dia</span>
+        </div>
+        <div class="sel-part2">
+          <span>
+            <div class="bar-bg" id="bar5">
+              <span class="min" onclick="min(5)"><i class="fa-sharp fa-solid fa-circle-minus"></i></span>
+              <span class="num" id="num5">0</span>
+              <span class="plus" onclick="plus(5)"><i class="fa-sharp fa-solid fa-circle-plus"></i></span>
+            </div>
+          </span>
+        </div>
+      </div>
+      <div class="select">
+        <div class="sel-part1">
+          <h4>
+            <i class="fa-solid fa-shield"></i>
+            <label>Proteccion interior</label>
+          </h4>
+          <span>$88.46/dia</span>
+        </div>
+        <div class="sel-part2">
+          <span>
+            <div class="bar-bg" id="bar6">
+              <span class="min" onclick="min(6)"><i class="fa-sharp fa-solid fa-circle-minus"></i></span>
+              <span class="num" id="num6">0</span>
+              <span class="plus" onclick="plus(6)"><i class="fa-sharp fa-solid fa-circle-plus"></i></span>
+            </div>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="col-2">
+      <div class="show">
+        <div class="part1">
+          <img id='car-img2', src="./img/car (1).png" alt="carimg" class="carimg">
+        </div>
+        <div class="part2">
+          <h4 id="car-name2">todos</h4>
+        </div>
+          <!-- <div class="button">siguiente</div> -->
+      </div>
+      <div class="show2">
+        <h3>Su resumen de reserva:</h3>
+        <p>
+          <i class="fa-solid fa-check"></i> Seguro de indemnización por daños a terceros
+        </p>
+        <p>
+          <i class="fa-solid fa-check"></i> Soporte en averías 24 horas al día, 7 días a la semana
+        </p>
+        <p>
+          <i class="fa-solid fa-check"></i> 4.000 km incluidos, cada kilómetro adicional cuesta $3,72.
+        </p>
+        <p>
+          <i class="fa-solid fa-check"></i> 3 conductores adicionales
+        </p>
+        <p>
+          <i class="fa-solid fa-check"></i> Opciones de pago: sea flexible: pague al recogerlo, cancele y vuelva a reservar gratis en cualquier momento
+        </p>
+      </div>
+    </div>
+  </aside>
+</body>
+
+<script>
+  
+  let id = sessionStorage.getItem("id");
+  let newprice = sessionStorage.getItem("newprice");
+  var newprice2= newprice;
+  info = carlist[id-1];
+  // alert("new price : "+newprice);
+  // alert("original price : "+info.price);
+  document.getElementById("car-name").innerHTML =info.name;
+  document.getElementById("car-type").innerHTML =info.type;
+  document.getElementById('car-img').src=info.url;
+  document.getElementById("car-price").innerHTML =newprice;
+  document.getElementById("total-price").innerHTML =(newprice*28).toFixed(2);
+
+  document.getElementById("car-name2").innerHTML =info.name;
+  document.getElementById('car-img2').src=info.url;
+</script>
+</html>
