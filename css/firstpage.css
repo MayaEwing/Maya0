@@ -1,0 +1,739 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+}
+html{
+  scroll-behavior: smooth;
+  margin: 0;
+  font-size: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+::-webkit-scrollbar{
+  width:8px;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb{
+  background-color: #969696;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover{
+  background-color: #3d3d3d;
+}
+.bg-dark{
+  background-color: #262626;
+  color:white;
+}
+.f-left{
+  float: left;
+}
+.f-right{
+  float: right;
+}
+.w-100{
+  width: 100%;
+}
+@media screen and (min-width: 1800px) {
+  header{
+    width:1300px;
+    margin: auto;
+  }
+  aside{
+    width:1300px;
+    margin: auto;
+  }
+}
+header .header-top{
+  width: 100%;
+  height: 60px;
+}
+header .header-top img{
+  margin-left: 20px;
+  height: 100%;
+  float: left;
+}
+header .header-top .content{
+  font-size: 14px;
+  padding-right: 20px;
+  padding-top: 18px;
+  float: right;
+}
+header .header-top .content span{
+  margin: 10px;
+}
+header .header-title{
+  font-family:'Arial Black';
+  font-size: 24px;
+  font-weight: 500;
+  border-bottom: 1px solid #8d8d8d;
+  padding: 15px;
+}
+header .header-filter{
+  padding: 10px;
+}
+
+header .header-filter .tag-bar{
+  padding: 0px 10px;
+}
+header .header-filter .tag-bar .tag-item{
+  border-radius: 10px;
+  font-size: 15px;
+  margin-right: 5px;
+  padding: 5px 20px;
+  background-color: rgba(49, 49, 49, 0.356);
+  cursor: pointer;
+}
+header .header-filter .tag-bar .tag-item:hover{
+  /* font-weight: 700; */
+  /* border: 1px solid gray; */
+  background-color: rgba(146, 146, 146, 0.356);
+  box-shadow: 2px 2px 2px rgb(204, 204, 204);
+}
+header .header-filter .tag-bar .active{
+  /* font-weight: 700; */
+  border: 1px solid gray;
+  background-color: rgba(146, 146, 146, 0.356);
+  box-shadow: 2px 2px 2px rgb(204, 204, 204);
+  /* cursor:not-allowed; */
+}
+
+
+
+aside{
+  background-color: white;
+}
+.row{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 10px 30px;
+}
+
+.col{
+  text-decoration: none;
+  display: none;
+  overflow: hidden;
+  width: 30%;
+  max-width: 33%;
+  height: 380px;
+  background: url('../img/item-bg.jpg');
+  background-size: 100% 100%;
+  margin: 20px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px #6d6d6d;
+}
+@media screen and (max-width:800px) {
+
+  .col{
+    width: 100%;
+    max-width: 100%;
+
+  }
+}
+.show {
+  display: block !important;
+}
+/* .active{
+  box-shadow: 2px 2px 6px #424242;
+  border: 1px solid orangered;
+
+} */
+.col:hover{
+  /* border: 1px solid white; */
+  box-shadow: 2px 2px 6px #424242;
+  cursor: pointer;
+
+}
+.col .car-info{
+  padding: 10px ;
+}
+.col .car-info .description{
+  color: #858585;
+  font-weight: 100;
+  
+}
+.col .car-info .big-num{
+  color: white;
+  font-size: 25px;
+  font-weight: 400;
+  
+}
+.col .car-info .sm-num{
+  color: #757575;
+  font-size: 15px;
+  
+}
+.col .tag-bar{
+  padding: 0px 10px;
+}
+.col .tag-bar .tag-item{
+  border-radius: 30px;
+  font-size: 15px;
+  margin-right: 5px;
+  padding: 0px 10px;
+  background-color: rgba(68, 68, 68, 0.356);
+}
+.col .tag-bar .tag-item span{
+  margin-left: 10px;
+}
+
+.col .carimg{
+  width:300px;
+  margin: auto;
+}
+.col .carimg img{
+  width:300px;
+}
+.col:hover .carimg img {
+  transform: scale(1.2);
+  transition: all .5s;
+} 
+@media screen and (max-width: 1300px) {
+  .row{
+    padding: 10px 0px;
+  }
+  .col{
+    margin: 5px;
+  }
+  
+}
+
+#modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+}
+.collapse{
+  /* display: none; */
+  background-color: rgb(228, 228, 228);
+  width: 100%;
+  padding: 30px 50px;
+}
+.collapse .box{
+  overflow: hidden;
+  display: flex;
+  background-color: white;
+  border-radius: 20px;
+  width: 100%;
+  height: 500px;
+  box-shadow: 5px 5px 10px rgb(26, 26, 26);
+}
+.collapse .box .container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin:15px 0px 0px 20px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.collapse .box .container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.collapse .box .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.collapse .box .container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.collapse .box .container input:checked ~ .checkmark {
+  background-color: #fc5000;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.collapse .box .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.collapse .box .container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.collapse .box .container .checkmark:after {
+ 	top: 9px;
+	left: 9px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+}
+
+@media screen and (min-width: 1400px) {
+  .collapse .box{
+    width:1300px;
+    margin: auto;
+  }}
+
+
+  .animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+  }
+  
+  @-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+  }
+    
+  @keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+  }
+
+  
+.collapse .car-img{
+  width: 30%;
+  background: url('../img/item-bg.jpg');
+  width: 40%;
+  /* height: 100%; */
+  background-size:100% 100%;
+  overflow: hidden;
+}
+.collapse .car-info{
+  padding: 20px;
+}
+.collapse .car-info .description{
+  color: #858585;
+  font-weight: 100;
+  
+}
+.collapse .car-info2{
+  color: white;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 400;
+  
+}
+.collapse .car-info2 i{
+  margin-left: 5px;
+}
+
+.collapse .carimg{
+  padding: 40px 0px;
+  width:300px;
+  margin: auto;
+}
+.collapse .carimg img{
+  width:350px;
+}
+.collapse .car-content{
+  width: 70%;
+  padding: 20px;
+}
+.collapse .car-content .header-bar{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.collapse .car-content .cancelbtn{
+  border: none;
+  background: none;
+  font-size: 30px;
+  cursor: pointer;
+}
+.collapse .car-content .select1{
+  display: flex;
+  padding: 10px;
+  width: 100%;
+  border:1px solid grey;
+  border-radius: 10px 10px 0px 0px;
+}
+.collapse .car-content .select1 .sel-part0{
+  width: 10%;
+}
+
+.collapse .car-content .select1 .sel-part1{
+  width: 70%;
+}
+.collapse .car-content .select1 .sel-part2{
+  text-align: end;
+  width: 20%;
+}
+.collapse .car-content .select1 span{
+  font-size: 16px;
+  color:#6d6d6d;
+}
+.collapse .car-content .select1:hover{
+  border:1px solid black;
+  box-shadow: 2px 2px 5px rgb(182, 182, 182);
+  /* background-color: rgb(255, 224, 218); */
+}
+.collapse .car-content .select2{
+  display: flex;
+  padding: 10px;
+  width: 100%;
+  border:1px solid grey;
+  border-top: none;
+  border-radius: 0px 0px 10px 10px;
+}
+.collapse .car-content .select2 span{
+  font-size: 16px;
+  color:#6d6d6d;
+}
+.collapse .car-content .select2 .sel-part0{
+  width: 10%;
+}
+
+.collapse .car-content .select2 .sel-part1{
+  width: 70%;
+}
+.collapse .car-content .select2 .sel-part2{
+  text-align: end;
+  width: 20%;
+}
+.collapse .car-content .select2:hover{
+  border:1px solid black;
+  box-shadow: 2px 2px 5px rgb(212, 212, 212);
+  /* background-color: rgb(255, 224, 218); */
+  border-top:none;
+}
+.collapse .car-content .kilo{
+  margin: 20px 0px;
+}
+.collapse .car-content .select3{
+  padding: 10px;
+  width: 100%;
+  border:1px solid grey;
+  border-radius: 10px 10px 10px 10px;
+}
+.collapse .car-content .select3 span{
+  font-size: 16px;
+  color:#6d6d6d;
+}
+.collapse .car-content .footer-bar{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+.collapse .car-content .footer-bar .button{
+  width: 30%;
+  text-decoration: none;
+  text-align: center;
+  color: white;
+  background-color: orangered;
+  width: 300px;
+  border-radius: 10px;
+  padding: 10px;
+}
+.collapse .car-content .footer-bar .button:hover{
+  text-align: center;
+  font-weight: 500;
+  color: white;
+  background-color: rgb(224, 26, 0);
+  cursor: pointer;
+}
+.collapse .car-content .footer-bar .big-num{
+  color: black;
+  font-size: 25px;
+  font-weight: 400;
+  
+}
+.collapse .car-content .footer-bar .sm-num{
+  margin-left: 10px;
+  color: #757575;
+  font-size: 15px;
+  
+}
+@media screen and (max-width:1200px) {
+  .collapse .car-content .select1 span{
+    font-size: 12px;
+    color:#6d6d6d;
+  }
+  .collapse .car-content .select3{
+    padding: 5px;
+    width: 100%;
+    border:1px solid grey;
+    border-radius: 10px 10px 10px 10px;
+  } 
+  .collapse .car-content .select3 span{
+    font-size: 12px;
+    color:#6d6d6d;
+  }
+  .collapse .car-content .footer-bar .big-num{
+    color: black;
+    font-size: 15px;
+    font-weight: 400;
+    
+  }
+  .collapse .car-content .footer-bar .sm-num{
+    margin-left: 10px;
+    color: #757575;
+    font-size: 10px;
+    
+  }
+}
+@media screen and (max-width:1000px) {
+  
+  #modal {
+    display: hidden; /* Hidden by default */
+    position:static; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    overflow:visible; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 0px;
+  }
+  .collapse{
+    /* display: none; */
+    background-color: rgb(228, 228, 228);
+    width: 100%;
+    padding: 0px 0px;
+  }
+  .collapse .box{
+    overflow: visible;
+    display: block;
+    background-color: white;
+    border-radius: 0px;
+    width: 100%;
+    height: auto;
+    box-shadow: 5px 5px 10px rgb(26, 26, 26);
+  }
+  .collapse .box .container {
+    display: block;
+    position: relative;
+    padding-left: 0px;
+    margin:15px 0px 0px 20px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  /* Hide the browser's default radio button */
+  .collapse .box .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  /* Create a custom radio button */
+  .collapse .box .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 50%;
+  }
+
+  /* On mouse-over, add a grey background color */
+  .collapse .box .container:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+
+  /* When the radio button is checked, add a blue background */
+  .collapse .box .container input:checked ~ .checkmark {
+    background-color: #fc5000;
+  }
+
+  /* Create the indicator (the dot/circle - hidden when not checked) */
+  .collapse .box .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+
+  /* Show the indicator (dot/circle) when checked */
+  .collapse .box .container input:checked ~ .checkmark:after {
+    display: block;
+  }
+
+  /* Style the indicator (dot/circle) */
+  .collapse .box .container .checkmark:after {
+    top: 9px;
+    left: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+  }
+  .collapse .car-img{
+    width: 100%;
+    background: url('../img/item-bg.jpg');
+
+    /* height: 100%; */
+    background-size:100% 100%;
+    overflow: hidden;
+  }
+  .collapse .car-info{
+    padding: 20px;
+  }
+  .collapse .car-info .description{
+    color: #858585;
+    font-weight: 100;
+    
+  }
+  .collapse .car-info2{
+    color: white;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 400;
+    
+  }
+  .collapse .car-info2 i{
+    margin-left: 5px;
+  }
+  
+  .collapse .carimg{
+    width:300px;
+    margin: auto;
+  }
+  .collapse .carimg img{
+    width:300px;
+  }
+  .collapse .car-content{
+    width: 100%;
+  }
+  .collapse .car-content .header-bar{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  .collapse .car-content .cancelbtn{
+    border: none;
+    background: none;
+    font-size: 30px;
+    cursor: pointer;
+  }
+  .collapse .car-content .select1{
+    display: flex;
+    padding: 10px;
+    width: 100%;
+    border:1px solid grey;
+    border-radius: 10px 10px 0px 0px;
+  }
+  .collapse .car-content .select1 .sel-part0{
+    width: 15%;
+  }
+  
+  .collapse .car-content .select1 .sel-part1{
+    width: 60%;
+  }
+  .collapse .car-content .select1 .sel-part2{
+    text-align: end;
+    width: 30%;
+  }
+  .collapse .car-content .select1 span{
+    font-size: 16px;
+    color:#6d6d6d;
+  }
+  .collapse .car-content .select1:hover{
+    cursor: pointer;
+    border:1px solid black;
+    box-shadow: 2px 2px 5px rgb(182, 182, 182);
+    /* background-color: rgb(255, 224, 218); */
+  }
+  .collapse .car-content .select2{
+    display: flex;
+    padding: 10px;
+    width: 100%;
+    border:1px solid grey;
+    border-top: none;
+    border-radius: 0px 0px 10px 10px;
+  }
+  .collapse .car-content .select2 span{
+    font-size: 16px;
+    color:#6d6d6d;
+  }
+  .collapse .car-content .select2 .sel-part0{
+    width: 15%;
+  }
+  
+  .collapse .car-content .select2 .sel-part1{
+    width: 60%;
+  }
+  .collapse .car-content .select2 .sel-part2{
+    text-align: end;
+    width: 30%;
+  }
+  .collapse .car-content .select2:hover{
+    cursor: pointer;
+    border:1px solid black;
+    box-shadow: 2px 2px 5px rgb(212, 212, 212);
+    /* background-color: rgb(255, 224, 218); */
+    border-top:none;
+  }
+  .collapse .car-content .kilo{
+    margin: 20px 0px;
+  }
+  .collapse .car-content .select3{
+    padding: 10px;
+    width: 100%;
+    border:1px solid grey;
+    border-radius: 10px 10px 10px 10px;
+  }
+  .collapse .car-content .select3 span{
+    font-size: 16px;
+    color:#6d6d6d;
+  }
+  .collapse .car-content .footer-bar{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+  }
+  .collapse .car-content .footer-bar .button{
+    text-decoration: none;
+    text-align: center;
+    color: white;
+    background-color: orangered;
+    width: 200px;
+    border-radius: 10px;
+    padding: 10px;
+  }
+  .collapse .car-content .footer-bar .button:hover{
+    text-align: center;
+    font-weight: 500;
+    color: white;
+    background-color: rgb(224, 26, 0);
+    cursor: pointer;
+  }
+  .collapse .car-content .footer-bar .big-num{
+    color: black;
+    font-size: 25px;
+    font-weight: 400;
+    
+  }
+  .collapse .car-content .footer-bar .sm-num{
+    margin-left: 10px;
+    color: #757575;
+    font-size: 15px;
+    
+  }
+  
+}
